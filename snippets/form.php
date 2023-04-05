@@ -6,6 +6,7 @@
     <input type="text" name="caseDiameter" id="caseDiameter" value="35">
     <br>
     <button type="submit" id="submit-button">Submit</button>
+	<label id="loading-label" hidden>loading...</label>
 </form>
 <div id="table-container"></div>
 
@@ -14,8 +15,7 @@
 		var form = document.getElementById("myForm");
 		form.addEventListener("submit", function(event) {	
 			event.preventDefault();
-			document.getElementById("table-container").innerHTML = '<div/>';
-			document.getElementById("submit-button").disabled = true;
+			markAsLoading();
 			
 			$p1 = document.getElementById("shaftDiameter").value;
 			$p2 = document.getElementById("caseDiameter").value;
@@ -30,13 +30,23 @@
 
 				var container = document.getElementById("table-container");
 				container.innerHTML = dataTable;
-				
-				document.getElementById("submit-button").disabled = false;
+				markAsLoaded();
 			})
 			.catch(error => {
 				console.error("Error:", error);
-				document.getElementById("submit-button").disabled = false;
+				markAsLoaded();
 			});
 		});
 	});
+	
+	function markAsLoading() {
+		document.getElementById("table-container").innerHTML = '<div/>';
+		document.getElementById("submit-button").disabled = true;
+		document.getElementById("loading-label").hidden = false;			
+	}
+	
+	function markAsLoaded() {
+		document.getElementById("submit-button").disabled = false;
+		document.getElementById("loading-label").hidden = true;
+	}
 </script>
