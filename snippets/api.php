@@ -31,15 +31,16 @@
 <!--  thumbnail -->
 <!--  eCatalogLink -->
 <table>
+    <label>count: <?php echo count($data)?></label>
     <thead>
         <tr>
             <th>articleNo</th>
             <th>rankingPct</th>
             <th>designname<th>
-			<th>shaftDiameter<th>
-    		<th>caseDiameter<th>
-    		<th>width<th>
-    		<th>materialname<th>
+	    <th>shaftDiameter<th>
+    	    <th>caseDiameter<th>
+    	    <th>width<th>
+    	    <th>materialname<th>
         </tr>
     </thead>
     <tbody>
@@ -48,10 +49,10 @@
                 <td><?php echo $item->articleNo; ?></td>
                 <td><?php echo $item->rankingPct; ?></td>
                 <td><?php echo $item->designname; ?></td>
-				<td><?php echo $item->shaftDiameter; ?></td>
-				<td><?php echo $item->caseDiameter; ?></td>
-				<td><?php echo $item->width; ?></td>
-				<td><?php echo $item->materialname; ?></td>
+		<td><?php echo $item->shaftDiameter; ?></td>
+		<td><?php echo $item->caseDiameter; ?></td>
+		<td><?php echo $item->width; ?></td>
+		<td><?php echo $item->materialname; ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
