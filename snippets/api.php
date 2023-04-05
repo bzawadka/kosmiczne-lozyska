@@ -7,19 +7,19 @@
 // 	if ($_SERVER["REQUEST_METHOD"] == "GET")
 	
 	$request_data = array(
-		'shaftDiameter' => $_GET['shaftDiameter'],
-		'caseDiameter' => $_GET['caseDiameter'],
-		'width' => $_GET['width'],
+	    'shaftDiameter' => $_GET['shaftDiameter'],
+	    'caseDiameter' => $_GET['caseDiameter'],
+	    'width' => $_GET['width'],
 	    'design' => 'BAUMSL',
 	    'dustlip' => 'false'
 	);
 
 	$response = wp_remote_post('https://simmerring-api-stag.azurewebsites.net/api/SimmerringFinder?apiKey=2c5fe3bd-923e-4d48-a044-9772bc190674', array(
-		'body' => $request_data
+	    'body' => $request_data
 	));
 
 	if (is_wp_error($response)) {
-		echo 'An error occured when calling FST API';
+	    echo 'An error occured when calling FST API';
 	}
 
 	$body = wp_remote_retrieve_body($response);
